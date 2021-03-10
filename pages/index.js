@@ -1,6 +1,11 @@
 import Head from "next/head"
 
-export default function Home() {
+
+const HOST_NAME = "https://hacker-news.firebaseio.com"
+
+const Home = ({ best20Ids }) => {
+  console.log(best20Ids)
+
   return (
     <div className="bg-white">
       <Head>
@@ -27,4 +32,18 @@ export default function Home() {
       </div>
     </div>
   )
+}
+
+export default Home
+
+export const getStaticProps = async () => {
+  const bestIdsRes = await fetch(`${HOST_NAME}/v0/beststories.json`)
+  const bestIds = await bestIdsRes.json()
+  const best20Ids = bestIds.slice(0, 20)
+
+  return {
+    props: {
+      best20Ids,
+    },
+  }
 }

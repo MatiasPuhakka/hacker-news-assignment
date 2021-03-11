@@ -1,6 +1,9 @@
 export const Score = ({ children, className, ...props }) => (
   <div
-    className=" rounded-full bg-teal-100 text-teal-900 leading-5 px-2 py-0.5 flex items-center space-x-1"
+    className={
+      (className,
+      ` rounded-full bg-teal-100 text-teal-900 leading-5 px-2 py-0.5 flex items-center space-x-1`)
+    }
     {...props}
   >
     <svg

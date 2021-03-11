@@ -19,26 +19,21 @@ const ListItem = ({ id }) => {
   }, [])
 
   return (
-    <article className="p-4 flex space-x-4">
-      <div className="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
-        <h2 className="text-lg font-semibold text-black mb-0.5">
-          <a href={story.url} target="_blank" rel="noopener noreferrer">
-            {story.title}
-          </a>
-        </h2>
-        <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
-          <div>
-            <dt className="sr-only">Created</dt>
-            <dd>{formatDate(story.time)}</dd>
-          </div>
-          {" - By "}
-          <Link href="/user/[id]" as={`/user/${story.by}`}>
-            <a className="text-green-500">{story.by}</a>
-          </Link>
-          <Score style={{ position: "absolute", top: 0, right: 0 }}>
-            {story.score}
-          </Score>
-        </dl>
+    <article className="flex flex-wrap items-start justify-between py-4">
+      <h2 className="w-full sm:w-4/5 text-lg font-semibold text-black mb-2">
+        <a href={story.url} target="_blank" rel="noopener noreferrer">
+          {story.title}
+        </a>
+      </h2>
+
+      <Score className="w-auto sm:w-1/5">{story.score}</Score>
+
+      <div className="w-auto sm:w-full flex text-sm font-medium whitespace-pre sm:mt-2">
+        <span className="sr-only">Created</span>
+        {`${formatDate(story.time)} - By `}
+        <Link href="/user/[id]" as={`/user/${story.by}`}>
+          <a className="text-green-500">{story.by}</a>
+        </Link>
       </div>
     </article>
   )

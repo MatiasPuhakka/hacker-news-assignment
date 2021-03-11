@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 
+import { formatDate } from "../utils/formatDate"
+
 const HOST_NAME = "https://hacker-news.firebaseio.com"
 
 const ListItem = ({ id }) => {
@@ -13,11 +15,6 @@ const ListItem = ({ id }) => {
   useEffect(() => {
     fetchStory()
   }, [])
-
-  const formatDate = (date) => {
-    if (!date) return ""
-    return new Intl.DateTimeFormat("fi-FI").format(new Date(date * 1000))
-  }
 
   return (
     <article className="p-4 flex space-x-4">

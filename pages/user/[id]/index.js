@@ -31,7 +31,7 @@ const User = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h2 className="text-2xl tracking-tight font-extrabold text-gray-900 mt-5 sm:text-3xl md:text-4xl">
+      <h2 className="text-2xl tracking-tight font-extrabold text-gray-900 mt-10 sm:text-3xl md:text-4xl">
         {user.id}
       </h2>
 

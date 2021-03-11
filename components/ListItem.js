@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import Link from "next/link"
 
 import { formatDate } from "../utils/formatDate"
 
@@ -20,7 +21,9 @@ const ListItem = ({ id }) => {
     <article className="p-4 flex space-x-4">
       <div className="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
         <h2 className="text-lg font-semibold text-black mb-0.5">
-          {story.title}
+          <a href={story.url} target="_blank" rel="noopener noreferrer">
+            {story.title}
+          </a>
         </h2>
         <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
           <div>
@@ -28,7 +31,9 @@ const ListItem = ({ id }) => {
             <dd>{formatDate(story.time)}</dd>
           </div>
           {" - By "}
-          <div className="flex text-green-500">{story.by}</div>
+          <Link href="/user/[id]" as={`/user/${story.by}`}>
+            <a className="text-green-500">{story.by}</a>
+          </Link>
           <div className="absolute top-0 right-0 rounded-full bg-teal-100 text-teal-900 leading-5 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
             <svg
               className="w-5 h-5"

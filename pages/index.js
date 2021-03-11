@@ -17,9 +17,6 @@ const Home = ({ best20Ids }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PageTitle>
-        <span className="text-green-500">Top 20</span> Hacker News
-      </PageTitle>
       <PageDescription>
         These are the best 20 stories on Hacker News as of right now.
       </PageDescription>

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 
+import { Score } from "./Score"
 import { formatDate } from "../utils/formatDate"
 
 const HOST_NAME = "https://hacker-news.firebaseio.com"
@@ -34,21 +35,9 @@ const ListItem = ({ id }) => {
           <Link href="/user/[id]" as={`/user/${story.by}`}>
             <a className="text-green-500">{story.by}</a>
           </Link>
-          <div className="absolute top-0 right-0 rounded-full bg-teal-100 text-teal-900 leading-5 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 5v14M18 11l-6-6M6 11l6-6" />
-            </svg>
-
+          <Score style={{ position: "absolute", top: 0, right: 0 }}>
             {story.score}
-          </div>
+          </Score>
         </dl>
       </div>
     </article>

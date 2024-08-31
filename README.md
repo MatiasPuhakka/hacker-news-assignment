@@ -1,3 +1,7 @@
+# Top 20 Hacker News
+
+**Note:** This was an interview assignment for Gofore in March 2021.
+
 ## The assignment
 
 You should get the 20 best stories from Hacker News and display them in a nicely organized list, providing the user with some extra usable and informative features that will be described here in the instructions.
